@@ -237,6 +237,20 @@ class TimeUtils():
     def getTheCurrentHour():
         return int(str(datetime.datetime.strftime(datetime.datetime.now(),'%H')))
 
+    @classmethod
+    def calculateTheElapsedTimeCombination(cls, lastTime):
+        timeNow = cls.getAccurateTimeNow()
+        a = parse(lastTime)
+        b = parse(timeNow)
+        seconds = int((b - a).total_seconds())
+        return [int(seconds / 3600), int((seconds % 3600) / 60), int(seconds % 60)]
+
+    @staticmethod
+    def replaceHourMinuteAndSecond(parameterList, msg):
+        return (msg.replace(r'{hour}', str(parameterList[0]))
+                    .replace(r'{minute}', str(parameterList[1]))
+                    .replace(r'{second}', str(parameterList[2])))
+
 
 def mainProgram(bot, userQQ, userGroup, msg, nickname):
     # Good morning match
@@ -369,15 +383,15 @@ def goodMorningInformation(userQQ, userGroup, nickname):
             send += ((Utils.extractConfigurationInformationAccordingToSpecifiedParameters('suffix',
                 GoodMorningModel.MORNING_MODEL.value)).replace(r'{number}', str(rank)) + '\n')
             # Calculate precise sleep time
-            sleepPreciseTime = Utils.calculateTheElapsedTimeCombination(registered['accurateTime'])
+            sleepPreciseTime = TimeUtils.calculateTheElapsedTimeCombination(registered['accurateTime'])
             if sleepPreciseTime[0] >= 9:
-                send += Utils.replaceHourMinuteAndSecond(sleepPreciseTime, 
+                send += TimeUtils.replaceHourMinuteAndSecond(sleepPreciseTime, 
                             (Utils.readConfiguration(GoodMorningModel.MORNING_MODEL.value))['sleeping_time'][1]['content'])
             elif sleepPreciseTime[0] >= 7:
-                send += Utils.replaceHourMinuteAndSecond(sleepPreciseTime, 
+                send += TimeUtils.replaceHourMinuteAndSecond(sleepPreciseTime, 
                             (Utils.readConfiguration(GoodMorningModel.MORNING_MODEL.value))['sleeping_time'][0]['content'])
             else:
-                send += Utils.replaceHourMinuteAndSecond(sleepPreciseTime, 
+                send += TimeUtils.replaceHourMinuteAndSecond(sleepPreciseTime, 
                             (Utils.readConfiguration(GoodMorningModel.MORNING_MODEL.value))['too_little_sleep'])
         else:
             rank = addToCheckInPoolAndGetRanking(userQQ, userGroup, GoodMorningModel.MORNING_MODEL.value)
@@ -427,12 +441,12 @@ def goodNightInformation(userQQ, userGroup, nickname):
             rank = addToCheckInPoolAndGetRanking(userQQ, userGroup, GoodMorningModel.NIGHT_MODEL.value)
             send += ((Utils.extractConfigurationInformationAccordingToSpecifiedParameters('suffix',
                 GoodMorningModel.NIGHT_MODEL.value)).replace(r'{number}', str(rank)) + '\n')
-            soberAccurateTime = Utils.calculateTheElapsedTimeCombination(registered['accurateTime'])
+            soberAccurateTime = TimeUtils.calculateTheElapsedTimeCombination(registered['accurateTime'])
             if soberAccurateTime[0] >= 12:
-                send += Utils.replaceHourMinuteAndSecond(soberAccurateTime, 
+                send += TimeUtils.replaceHourMinuteAndSecond(soberAccurateTime, 
                             (Utils.readConfiguration(GoodMorningModel.NIGHT_MODEL.value))['working_hours'][2]['content'])
             else:
-                send += Utils.replaceHourMinuteAndSecond(soberAccurateTime, 
+                send += TimeUtils.replaceHourMinuteAndSecond(soberAccurateTime, 
                             random.choice((Utils.readConfiguration(GoodMorningModel.NIGHT_MODEL.value))['working_hours'])['content'])
         else:
             rank = addToCheckInPoolAndGetRanking(userQQ, userGroup, GoodMorningModel.NIGHT_MODEL.value)
