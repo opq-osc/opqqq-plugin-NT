@@ -122,11 +122,12 @@ class Tools():
 
 
     @classmethod
-    def sendPictures(cls, userGroup, picPath, bot, atUser = 0):
+    def sendPictures(cls, userGroup, picPath, bot, content = '', atUser = 0):
         bot.send_group_pic_msg(
             toUser = int(userGroup),
             picBase64Buf = cls.base64conversion(picPath),
-            atUser = int(atUser)
+            atUser = int(atUser),
+            content = str(content)
         )
     
     @staticmethod
@@ -258,7 +259,7 @@ def handlingMessages(msg, bot, userGroup, userQQ):
                 userGroup = userGroup,
                 picPath = outPath,
                 bot = bot,
-                atUser = userQQ
+                content = f'[ATUSER({userQQ})]'
             )
             return
 
