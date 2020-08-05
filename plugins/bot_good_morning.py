@@ -38,6 +38,9 @@ def receive_group_msg(ctx: GroupMsg):
     if Tools.commandMatch(userGroup, blockGroupNumber):
         return
 
+    if not Tools.textOnly(ctx.MsgType):
+        return
+
     userQQ = ctx.FromUserId
     msg = ctx.Content
     nickname = ctx.FromNickName
@@ -69,6 +72,15 @@ class Status(Enum):
 
 
 class Tools():
+
+    @staticmethod
+    def textOnly(msgType):
+        return True if msgType == 'TextMsg' else False
+
+
+    @staticmethod
+    def atOnly(msgType):
+        return True if msgType == 'AtMsg' else False
 
     @staticmethod
     def writeFile(p, content):

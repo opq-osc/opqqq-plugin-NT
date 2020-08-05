@@ -40,8 +40,13 @@ def receive_group_msg(ctx: GroupMsg):
         host = host,
         port = port
     )
-    if not Tools.commandMatch(ctx.FromGroupId, blockGroupNumber):
-        mainEntrance(ctx.Content.strip(), ctx.FromUserId, ctx.FromGroupId, bot)
+    if Tools.commandMatch(ctx.FromGroupId, blockGroupNumber):
+        return
+
+    if not Tools.textOnly(ctx.MsgType):
+        return
+        
+    mainEntrance(ctx.Content, ctx.FromUserId, ctx.FromGroupId, bot)
 
 
     
@@ -64,6 +69,16 @@ class Status(Enum):
 
 
 class Tools():
+
+    @staticmethod
+    def textOnly(msgType):
+        return True if msgType == 'TextMsg' else False
+
+
+    @staticmethod
+    def atOnly(msgType):
+        return True if msgType == 'AtMsg' else False
+
 
     @staticmethod
     def writeFile(p, content):

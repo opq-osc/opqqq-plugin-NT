@@ -14,6 +14,7 @@ commandList = ['今日人品', '今日运势', '抽签', '人品', '运势', '�
 
 # ==========================================
 
+from types import CodeType
 from iotbot import Action, GroupMsg
 from PIL import Image, ImageDraw, ImageFont
 
@@ -35,6 +36,9 @@ def receive_group_msg(ctx: GroupMsg):
     userGroup = ctx.FromGroupId
 
     if Tools.commandMatch(userGroup, blockGroupNumber):
+        return
+
+    if not Tools.textOnly(ctx.MsgType):
         return
 
     userQQ = ctx.FromUserId
@@ -69,6 +73,15 @@ class Status(Enum):
 
 
 class Tools():
+
+    @staticmethod
+    def textOnly(msgType):
+        return True if msgType == 'TextMsg' else False
+
+
+    @staticmethod
+    def atOnly(msgType):
+        return True if msgType == 'AtMsg' else False
 
     @staticmethod
     def writeFile(p, content):
@@ -122,12 +135,14 @@ class Tools():
 
 
     @classmethod
-    def sendPictures(cls, userGroup, picPath, bot, content = '', atUser = 0):
+    def sendPictures(cls, userGroup, picPath, bot, standardization = True, content = '', atUser = 0):
+        if standardization:
+            content = str(content) + '[PICFLAG]'
         bot.send_group_pic_msg(
             toUser = int(userGroup),
             picBase64Buf = cls.base64conversion(picPath),
             atUser = int(atUser),
-            content = str(content)
+            content = content
         )
     
     @staticmethod
@@ -259,7 +274,7 @@ def handlingMessages(msg, bot, userGroup, userQQ):
                 userGroup = userGroup,
                 picPath = outPath,
                 bot = bot,
-                content = f'[ATUSER({userQQ})]'
+                content = Tools.atQQ(userQQ)
             )
             return
 
