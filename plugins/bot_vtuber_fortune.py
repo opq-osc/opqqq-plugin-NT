@@ -14,7 +14,6 @@ commandList = ['今日人品', '今日运势', '抽签', '人品', '运势', '�
 
 # ==========================================
 
-from types import CodeType
 from iotbot import Action, GroupMsg
 from PIL import Image, ImageDraw, ImageFont
 
