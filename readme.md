@@ -1,4 +1,4 @@
-# opqbot-plugin
+# opqqq-plugin
 
 🔥使用最多 | 🚀热门插件 | 🆕最新插件
 
@@ -16,6 +16,9 @@
 
 ## 使用说明📚
 [使用文档](https://fz6m.github.io/opqqq-plugin-press)
+
+### Docker🐳
+[食用方法](https://github.com/fz6m/opqqq-plugin/tree/docker)
 
 ### 兼容性✔
 本项目插件来自于 [nonebot-plugin](https://github.com/fz6m/nonebot-plugin) 的重构，配置完全兼容原项目，低成本即可马上迁移使用。
