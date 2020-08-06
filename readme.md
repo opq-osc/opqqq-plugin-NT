@@ -1,4 +1,4 @@
-# iotbot-plugin
+# opqbot-plugin
 
 🔥使用最多 | 🚀热门插件 | 🆕最新插件
 
@@ -15,7 +15,7 @@
 解锁更多爬与丢的姿势（By [clague](https://github.com/clague)）
 
 ## 使用说明📚
-[使用文档](https://fz6m.github.io/iotqq-plugin-press)
+[使用文档](https://fz6m.github.io/opqqq-plugin-press)
 
 ### 兼容性✔
 本项目插件来自于 [nonebot-plugin](https://github.com/fz6m/nonebot-plugin) 的重构，配置完全兼容原项目，低成本即可马上迁移使用。
