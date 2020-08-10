@@ -31,10 +31,14 @@ if qrListOpen:
 
 # ==========================================
 
+bot = Action(
+    qq_or_bot = int(os.getenv('BOTQQ')),
+    queue = True,
+    queue_delay = 0.5
+)
+
 def receive_group_msg(ctx: GroupMsg):
-    bot = Action(
-        qq_or_bot = ctx.CurrentQQ
-    )
+
     if Tools.commandMatch(ctx.FromGroupId, blockGroupNumber):
         return
 

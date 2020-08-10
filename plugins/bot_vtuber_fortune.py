@@ -28,6 +28,12 @@ except:
 
 # ==========================================
 
+bot = Action(
+    qq_or_bot = int(os.getenv('BOTQQ')),
+    queue = True,
+    queue_delay = 0.5
+)
+
 def receive_group_msg(ctx: GroupMsg):
     userGroup = ctx.FromGroupId
 
@@ -39,10 +45,6 @@ def receive_group_msg(ctx: GroupMsg):
 
     userQQ = ctx.FromUserId
     msg = ctx.Content
-
-    bot = Action(
-        qq_or_bot = ctx.CurrentQQ
-    )
 
     handlingMessages(msg, bot, userGroup, userQQ)
 

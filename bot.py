@@ -1,8 +1,12 @@
 # -*- coding:utf-8 -*-
 
 from iotbot import IOTBOT, Action, GroupMsg
+import os
 
 bot_qq = 12345678
+
+# 使得并发命令时，插件可以排队处理
+os.environ['BOTQQ'] = str(bot_qq)
 
 bot = IOTBOT(
     qq = bot_qq,
