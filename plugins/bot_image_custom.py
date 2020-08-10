@@ -6,9 +6,6 @@ RESOURCES_BASE_PATH = './resources/image-custom'
 
 # 屏蔽群 例：[12345678, 87654321]
 blockGroupNumber = []
-# 服务器配置
-host = 'http://127.0.0.1'
-port = 8888
 # 是否自动制作表情列表二维码 默认是 
 # 表情太多时二维码可能装不下扫不出来，请自行制作或者删去 resources/list.jpg 即关闭查询表情列表图（qrListOpen 也要关闭）
 qrListOpen = True
@@ -36,9 +33,7 @@ if qrListOpen:
 
 def receive_group_msg(ctx: GroupMsg):
     bot = Action(
-        qq_or_bot = ctx.CurrentQQ,
-        host = host,
-        port = port
+        qq_or_bot = ctx.CurrentQQ
     )
     if Tools.commandMatch(ctx.FromGroupId, blockGroupNumber):
         return

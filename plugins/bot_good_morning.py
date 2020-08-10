@@ -6,9 +6,6 @@ RESOURCES_BASE_PATH = './resources/good-morning'
 
 # 屏蔽群 例：[12345678, 87654321]
 blockGroupNumber = []
-# 服务器配置
-host = 'http://127.0.0.1'
-port = 8888
 # 早安指令
 goodMorningInstructionSet = ['早', '早安', '哦哈哟', 'ohayo', 'ohayou', '早安啊', '早啊', '早上好']
 # 晚安指令
@@ -45,9 +42,7 @@ def receive_group_msg(ctx: GroupMsg):
     msg = ctx.Content
     nickname = ctx.FromNickName
     bot = Action(
-        qq_or_bot = ctx.CurrentQQ,
-        host = host,
-        port = port
+        qq_or_bot = ctx.CurrentQQ
     )
 
     mainProgram(bot, userQQ, userGroup, msg, nickname)

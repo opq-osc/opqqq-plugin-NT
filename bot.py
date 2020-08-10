@@ -6,8 +6,9 @@ bot_qq = 12345678
 
 bot = IOTBOT(
     qq = bot_qq,
-    host = 'http://127.0.0.1', 
-    port = 8888,
+    # 若非默认，请在 .iotbot.json 内配置 ↓
+    # host = 'http://127.0.0.1', 
+    # port = 8888,
     use_plugins = True
 )
 action = Action(bot)
