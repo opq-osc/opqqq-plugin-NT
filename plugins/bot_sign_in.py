@@ -595,6 +595,7 @@ class TimeUtils():
                 cls.SECOND: int(seconds % 60) # The rest
             }
         if model == cls.DAY:
+            b = parse(cls.getTheCurrentTime())
             return int((b - a).days)
         if model == cls.MINUTE:
             return int(seconds / 60)
@@ -628,14 +629,14 @@ def confirmSignIn(userQQ):
     if content == Status.FAILURE:
         basiclyConstruct = {
             'days': 1,
-            'last_time': TimeUtils.getAccurateTimeNow(),
+            'last_time': TimeUtils.getTheCurrentTime(),
             'favorability': randomFavorability(0)
         }
         Tools.writeJsonFile(path, basiclyConstruct)
         return Status.SUCCESS
     lastTime = content['last_time']
     if TimeUtils.getTimeDifference(lastTime, model = TimeUtils.DAY) >= 1:
-        content['last_time'] = TimeUtils.getAccurateTimeNow()
+        content['last_time'] = TimeUtils.getTheCurrentTime()
         content['days'] += 1
         content['favorability'] = randomFavorability(content['favorability'])
         Tools.writeJsonFile(path, content)
