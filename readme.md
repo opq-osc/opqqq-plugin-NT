@@ -11,8 +11,11 @@
 ## Vtuber 运势🚀
 喜欢的 vtuber 带来你每天的运势
 
-## 可以爬了吗🆕
+## 可以爬了吗
 解锁更多爬与丢的姿势（By [clague](https://github.com/clague)）
+
+## Strings 签到🆕
+美好一天的开始，今天也要元气满满哦（By [jinserrr](https://github.com/jinserrr)）
 
 ## 使用说明📚
 [使用文档](https://fz6m.github.io/opqqq-plugin-press)
