@@ -11,6 +11,8 @@ blockGroupNumber = []
 qrListOpen = True
 # 表情包字体
 fontPath = f'{RESOURCES_BASE_PATH}/font/simhei.ttf'
+# 最小字体限制
+fontMin = 15
 
 # ==========================================
 
@@ -265,6 +267,8 @@ def drawing(emoticonId, text, userQQ):
         fontSize -= imageFontSub
         ttfront = ImageFont.truetype(fontPath, fontSize)
         fontLength = ttfront.getsize(text)
+    if fontSize <= fontMin:
+        return Status.FAILURE
     # 自定义打印的文字和文字的位置
     if fontLength[0] > 5:
         draw.text((imageFontCenter[0] - fontLength[0]/2, imageFontCenter[1] - fontLength[1]/2),
