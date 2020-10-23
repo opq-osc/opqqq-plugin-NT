@@ -27,6 +27,9 @@
 ### Docker🐳
 [食用方法](https://github.com/fz6m/opqqq-plugin/tree/docker)
 
+### Build
+若需分插件打包，请运行 `build/bundle.py`，打包结果将生成于 `build/out` 文件夹内
+
 ### 兼容性✔
 本项目插件来自于 [nonebot-plugin](https://github.com/fz6m/nonebot-plugin) 的重构，配置完全兼容原项目，低成本即可马上迁移使用。
 
