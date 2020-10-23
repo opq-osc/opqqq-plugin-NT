@@ -8,8 +8,12 @@
 ## 关注早晚安🚀
 关注睡眠时间，灵活调整生物钟
 
-## Vtuber 运势🚀
-喜欢的 vtuber 带来你每天的运势
+## Vtuber / Pcr 运势🚀
+喜欢的 vtuber / pcr 角色带来你每天的运势
+
+ pcr 版源码分支：[pcr-branch](https://github.com/fz6m/opqqq-plugin/tree/pcr) （Static resources by Pcr社区）
+
+注：自 hololive 发布敏感言论后，我们不建议您继续使用 vtuber-fortune，若需从 vtuber-fortune 迁移，请查看 [无损迁移](https://fz6m.github.io/opqqq-plugin-press/iotqq/vtuber-fortune.html#%E4%BB%8E-vtuber-%E7%89%88%E6%9C%AC%E8%BF%81%E7%A7%BB) 方法
 
 ## 可以爬了吗
 解锁更多爬与丢的姿势（By [clague](https://github.com/clague)）
