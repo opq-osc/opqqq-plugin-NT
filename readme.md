@@ -2,6 +2,12 @@
 
 🔥使用最多 | 🚀热门插件 | 🆕最新插件
 
+## End of life❗
+
+因无心力维护，本项目暂存，截止项目暂存前，所有插件依然可以稳定运行，如果你有兴趣可以自行 fork 进行迁移或改造。
+
+p.s. : 如果你是开发者，推荐使用新版 OPQ Python sdk ：[xiyaowong / botoy](https://github.com/xiyaowong/botoy)
+
 ## 自定义表情包🔥
 新颖的自制表情包工具，沙雕图生产效率高。
 
