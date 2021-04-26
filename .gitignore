@@ -1,6 +1,10 @@
 .vscode
 test
 __pycache__
+
+# bundle output
+/build/out
+
 # Botoy
 REMOVED_PLUGINS
 botoy-cache
