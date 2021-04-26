@@ -8,6 +8,7 @@ from enum import Enum
 
 from botoy import Action, GroupMsg
 from botoy.collection import MsgTypes
+from botoy.decorators import ignore_botself, these_msgtypes
 from dateutil.parser import parse
 from PIL import Image, ImageDraw, ImageFont
 
@@ -32,6 +33,7 @@ commandList = ["今日人品", "今日运势", "抽签", "人品", "运势", "�
 bot = Action(int(os.getenv("BOTQQ")))
 
 
+@ignore_botself
 def receive_group_msg(ctx: GroupMsg):
     userGroup = ctx.FromGroupId
 

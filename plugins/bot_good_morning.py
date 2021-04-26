@@ -7,6 +7,7 @@ from enum import Enum
 
 from botoy import Action, GroupMsg
 from botoy.collection import MsgTypes
+from botoy.decorators import ignore_botself, these_msgtypes
 from dateutil.parser import parse
 
 try:
@@ -29,6 +30,7 @@ goodNightInstructionSet = ["晚", "晚安", "哦呀斯密", "oyasumi", "oyasimi"
 # ==========================================
 
 
+@ignore_botself
 def receive_group_msg(ctx: GroupMsg):
     userGroup = ctx.FromGroupId
 
