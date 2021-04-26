@@ -1,6 +1,5 @@
-python_iotbot==2.2.1
-httpx==0.11.1
-qrcode==6.1
-ujson==1.35
-Pillow==8.1.1
-python_dateutil==2.8.1
+botoy
+httpx
+qrcode
+pillow
+python_dateutil

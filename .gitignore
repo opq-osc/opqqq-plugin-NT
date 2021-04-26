@@ -1,3 +1,6 @@
 .vscode
 test
-**/__pycache__
+__pycache__
+# Botoy
+REMOVED_PLUGINS
+botoy-cache

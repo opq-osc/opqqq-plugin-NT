@@ -1,29 +1,14 @@
-# -*- coding:utf-8 -*-
-
-from iotbot import IOTBOT, Action, GroupMsg
+import json
 import os
 
-bot_qq = 12345678
+from botoy import Botoy
 
-# 使得并发命令时，插件可以排队处理
-os.environ['BOTQQ'] = str(bot_qq)
+with open("botoy.json") as f:
+    config = json.load(f)
 
-bot = IOTBOT(
-    qq = bot_qq,
-    # 若非默认，请在 .iotbot.json 内配置 ↓
-    # host = 'http://127.0.0.1', 
-    # port = 8888,
-    use_plugins = True
-)
-action = Action(bot)
-
-
-@bot.on_group_msg
-def on_group_msg(ctx: GroupMsg):
-    # 不处理自身消息
-    if ctx.FromUserId == ctx.CurrentQQ:
-        return
-
+qq = config["qq"]
+os.environ["BOTQQ"] = str(qq)
+bot = Botoy(qq=qq, use_plugins=True)
 
 if __name__ == "__main__":
     bot.run()

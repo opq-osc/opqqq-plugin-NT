@@ -18,10 +18,7 @@ ls = os.listdir('../plugins')
 lsn = []
 for l in ls:
     resource_name = l.replace('bot_', '').replace('_', '-').replace('.py', '')
-    lsn.append({
-        'old': l,
-        'r': resource_name
-    })
+    lsn.append({'old': l, 'r': resource_name})
 
 base_dir = './out'
 os.mkdir(base_dir)
@@ -44,11 +41,9 @@ for l in lsn:
     o_readme = f'{base_dir}/{dir_name}/readme.md'
     shutil.copyfile(readme, o_readme)
 
-    i = '../.iotbot.json'
-    o_i = f'{base_dir}/{dir_name}/.iotbot.json'
+    i = '../botoy.json'
+    o_i = f'{base_dir}/{dir_name}/botoy.json'
     shutil.copyfile(i, o_i)
 
     dir1 = f'../resources/{dir_name}'
     shutil.copytree(dir1, f'{r}/{dir_name}')
-
-
