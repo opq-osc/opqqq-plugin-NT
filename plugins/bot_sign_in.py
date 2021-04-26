@@ -9,6 +9,7 @@ from io import BytesIO
 
 import httpx
 from botoy import Action, GroupMsg
+from botoy.decorators import ignore_botself, these_msgtypes
 from botoy.collection import MsgTypes
 from dateutil.parser import parse
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
@@ -46,7 +47,8 @@ bot = Action(
     int(os.getenv("BOTQQ")),
 )
 
-# @not_botself
+
+@ignore_botself
 def receive_group_msg(ctx: GroupMsg):
     userGroup = ctx.FromGroupId
 

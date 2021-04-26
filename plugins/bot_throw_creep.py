@@ -9,6 +9,7 @@ from io import BytesIO
 import httpx
 from botoy import Action, GroupMsg
 from botoy.collection import MsgTypes
+from botoy.decorators import ignore_botself, these_msgtypes
 from PIL import Image, ImageDraw
 
 try:
@@ -32,6 +33,7 @@ creep_limit = 80
 # ==========================================
 
 
+@ignore_botself
 def receive_group_msg(ctx: GroupMsg):
     userGroup = ctx.FromGroupId
 
