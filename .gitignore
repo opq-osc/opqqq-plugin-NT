@@ -2,6 +2,9 @@
 test
 __pycache__
 
+# mac
+.DS_Store
+
 # bundle output
 /build/out
 
