@@ -23,6 +23,9 @@
 ## Strings 签到🆕
 美好一天的开始，今天也要元气满满哦（By [jinserrr](https://github.com/jinserrr)）
 
+## 5000 兆元字体生成器
+生成具有冲击力的图片，使用方法详见：[5000 choyen doc](https://opq-osc.github.io/opqqq-plugin-press/iotqq/5000-choyen.html)
+
 ## 使用说明📚
 [使用文档](https://opq-osc.github.io/opqqq-plugin-press/)
 
