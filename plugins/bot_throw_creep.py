@@ -9,7 +9,7 @@ from io import BytesIO
 import httpx
 from botoy import Action, GroupMsg
 from botoy.collection import MsgTypes
-from botoy.decorators import ignore_botself, these_msgtypes
+from botoy.decorators import ignore_botself
 from PIL import Image, ImageDraw
 
 try:

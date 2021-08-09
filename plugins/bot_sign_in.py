@@ -9,8 +9,8 @@ from io import BytesIO
 
 import httpx
 from botoy import Action, GroupMsg
-from botoy.decorators import ignore_botself, these_msgtypes
 from botoy.collection import MsgTypes
+from botoy.decorators import ignore_botself
 from dateutil.parser import parse
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
@@ -42,12 +42,6 @@ hitokotoArchiveOpen = True
 # ==========================================
 
 
-bot = Action(
-    # 注意更换您的 bot.py 文件为最新
-    int(os.getenv("BOTQQ")),
-)
-
-
 @ignore_botself
 def receive_group_msg(ctx: GroupMsg):
     userGroup = ctx.FromGroupId
@@ -62,7 +56,7 @@ def receive_group_msg(ctx: GroupMsg):
     msg = ctx.Content
     nickname = ctx.FromNickName
 
-    mainProgram(msg, bot, userQQ, userGroup, nickname)
+    mainProgram(msg, Action(ctx.CurrentQQ), userQQ, userGroup, nickname)
 
 
 class Status(Enum):

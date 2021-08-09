@@ -7,7 +7,7 @@ from enum import Enum
 
 from botoy import Action, GroupMsg
 from botoy.collection import MsgTypes
-from botoy.decorators import ignore_botself, these_msgtypes
+from botoy.decorators import ignore_botself
 from dateutil.parser import parse
 
 try:

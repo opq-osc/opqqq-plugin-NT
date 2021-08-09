@@ -5,7 +5,7 @@ from enum import Enum
 
 from botoy import Action, GroupMsg
 from botoy.collection import MsgTypes
-from botoy.decorators import ignore_botself, these_msgtypes
+from botoy.decorators import ignore_botself
 from PIL import Image, ImageDraw, ImageFont
 
 try:
@@ -35,9 +35,6 @@ if qrListOpen:
 # ==========================================
 
 
-bot = Action(int(os.getenv("BOTQQ")))
-
-
 @ignore_botself
 def receive_group_msg(ctx: GroupMsg):
 
@@ -47,7 +44,7 @@ def receive_group_msg(ctx: GroupMsg):
     if not Tools.textOnly(ctx.MsgType):
         return
 
-    mainEntrance(ctx.Content, ctx.FromUserId, ctx.FromGroupId, bot)
+    mainEntrance(ctx.Content, ctx.FromUserId, ctx.FromGroupId, Action(ctx.CurrentQQ))
 
 
 class Model(Enum):
