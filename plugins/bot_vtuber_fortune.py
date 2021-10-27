@@ -123,8 +123,6 @@ class Tools:
     def sendPictures(
         cls, userGroup, picPath, bot: Action, standardization=True, content="", atUser=0
     ):
-        if standardization:
-            content = str(content) + "[PICFLAG]"
         bot.sendGroupPic(
             userGroup,
             picBase64Buf=cls.base64conversion(picPath),
