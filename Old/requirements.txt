@@ -1,0 +1,5 @@
+botoy
+httpx
+qrcode
+pillow
+python_dateutil

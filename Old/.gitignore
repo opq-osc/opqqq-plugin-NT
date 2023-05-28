@@ -1,0 +1,13 @@
+.vscode
+test
+__pycache__
+
+# mac
+.DS_Store
+
+# bundle output
+/build/out
+
+# Botoy
+REMOVED_PLUGINS
+botoy-cache
