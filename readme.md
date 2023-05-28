@@ -1,43 +1,25 @@
-# opqqq-plugin
+# opqqq-plugin-NT
 
-🔥使用最多 | 🚀热门插件 | 🆕最新插件
+原项目地址：[https://github.com/opq-osc/opqqq-plugin](https://github.com/opq-osc/opqqq-plugin)，亦可见本项目[Old](https://github.com/opq-osc/opqqq-plugin-NT/tree/master/Old)文件夹
 
-## 自定义表情包🔥
-新颖的自制表情包工具，沙雕图生产效率高。
 
-## 关注早晚安🚀
-关注睡眠时间，灵活调整生物钟
 
-## Vtuber / Pcr / 原神 运势🚀
-喜欢的 vtuber / pcr / 原神 角色带来你每天的运势
+由于OPQ框架及botoy更新，原项目中的大部分插件已失效。本人不胜惶恐，接下移植本项目的任务，欢迎各位大佬提PR。
 
- pcr 版源码分支：[pcr-branch](https://github.com/opq-osc/opqqq-plugin/tree/pcr) （静态资源感谢 Pcr 社区提供）
+近期一段时间的工作将会是全部迁移原项目的插件（大概会持续到六月份）
 
- 原神 版源码分支：[genshin-branch](https://github.com/opq-osc/opqqq-plugin/tree/genshin) （静态资源感谢 [@Kouseki](https://github.com/Katou-Kouseki) 提供）
+TODO：
 
-注：自 hololive 发布敏感言论后，我们不建议您继续使用 vtuber-fortune，若需从 vtuber-fortune 迁移，请查看 [无损迁移](https://opq-osc.github.io/opqqq-plugin-press/iotqq/vtuber-fortune.html#pcr-version-2) 方法
+- [ ] 自定义表情包
 
-## 可以爬了吗
-解锁更多爬与丢的姿势（By [clague](https://github.com/clague)）
+- [ ] 早晚安
 
-## Strings 签到🆕
-美好一天的开始，今天也要元气满满哦（By [jinserrr](https://github.com/jinserrr)）
+- [ ] Vtuber/Pcr/原神 运势
 
-## 5000 兆元字体生成器
-生成具有冲击力的图片，使用方法详见：[5000 choyen doc](https://opq-osc.github.io/opqqq-plugin-press/iotqq/5000-choyen.html)
+- [ ] 可以爬了吗
 
-## 使用说明📚
-[使用文档](https://opq-osc.github.io/opqqq-plugin-press/)
+- [ ] Strings 签到
 
-### Docker🐳
-[食用方法](https://github.com/opq-osc/opqqq-plugin/tree/docker)
+- [ ] 5000兆元字体生成器
 
-### Build
-若需分插件打包，请运行 `build/bundle.py`，打包结果将生成于 `build/out` 文件夹内
-
-### 兼容性✔
-本项目插件来自于 [nonebot-plugin](https://github.com/fz6m/nonebot-plugin) 的重构，配置完全兼容原项目，低成本即可马上迁移使用。
-
-### 编辑文件❗
-注：编辑任何文件请保证在 UTF-8 编码下，若为 ANSI，使用 NotePad++ 编码 -> 转为 UTF-8 编码。
-
+  ## 
