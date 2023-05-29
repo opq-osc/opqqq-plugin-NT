@@ -48,8 +48,8 @@ async def Pa():
 			return
 		if Tools.commandMatch(m, blockGroupNumber):
 			return
-		img = match(m)
-		await S.image(img)
+		if img := match(m):
+			await S.image(img)
 
 
 class Status(Enum):
