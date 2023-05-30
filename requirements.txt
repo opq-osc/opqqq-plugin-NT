@@ -1,3 +1,5 @@
 botoy >= 9.0.0
 httpx
 secrets
+pillow
+prettytable
