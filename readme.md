@@ -28,6 +28,6 @@ TODO：
 
 - [ ] Vtuber/Pcr/原神 运势
 
-- [ ] Strings 签到
+- [x] Strings 签到
 
 - [ ] 5000兆元字体生成器
