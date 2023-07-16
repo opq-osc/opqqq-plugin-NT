@@ -6,7 +6,7 @@ import os
 import random
 from enum import Enum
 
-from botoy import Action,ctx,mark_recv
+from botoy import Action,ctx
 from dateutil.parser import parse
 from PIL import Image, ImageDraw, ImageFont
 
@@ -29,20 +29,20 @@ commandList = ["今日人品", "今日运势", "抽签", "人品", "运势", "�
 
 
 
-async def fortune():
-    if g := ctx.g :
-        userGroup = g.from_group
+def receive_group_msg():
+    if msg := ctx.g :
+        userGroup = msg.from_group
 
-        if Tools.commandMatch(userGroup, blockGroupNumber):
-            return
+    if Tools.commandMatch(userGroup, blockGroupNumber):
+        return
 
-        if not Tools.textOnly(g):
-            return
+    if not Tools.textOnly(ctx.MsgType):
+        return
 
-        userQQ = g.from_user
-        msg = g.text
+    userQQ = msg.from_user
+    msg = msg.text
 
-        await handlingMessages(msg, Action(ctx.bot_qq), userGroup, userQQ)
+    handlingMessages(msg, Action(msg.CurrentQQ), userGroup, userQQ)
 
 
 class Model(Enum):
@@ -65,20 +65,12 @@ class Status(Enum):
 
 class Tools:
     @staticmethod
-    def textOnly(g):
-        if g.text:
-            return True
-        else:
-            return False
+    def textOnly(msgType):
+        return msgType == MsgTypes.TextMsg
 
     @staticmethod
-    def atOnly(g):
-        At = g.msg_body.AtUinLists
-        if At:
-            if not At[0].Uin == ctx.bot_qq and len(At) == 1:  # 只艾特一个人且不是bot
-                return True
-        else:
-            return False
+    def atOnly(msgType):
+        return msgType == MsgTypes.AtMsg
 
     @staticmethod
     def writeFile(p, content):
@@ -127,14 +119,14 @@ class Tools:
         return str(base64.b64encode(picByte), encoding="utf-8")
 
     @classmethod
-    async def sendPictures(
+    def sendPictures(
         cls, userGroup, picPath, bot: Action, standardization=True, content="", atUser=0
     ):
-        await bot.sendGroupPic(
+        bot.sendGroupPic(
             userGroup,
-            base64=cls.base64conversion(picPath),
+            picBase64Buf=cls.base64conversion(picPath),
             atUser=atUser,
-            text=content,
+            content=content,
         )
 
     @staticmethod
@@ -249,7 +241,7 @@ class VtuberFortuneModel(Enum):
     DEFAULT = "default"
 
 
-async def handlingMessages(msg, bot, userGroup, userQQ):
+def handlingMessages(msg, bot, userGroup, userQQ):
     match = Tools.commandMatch(msg, commandList)
     if match:
         # Determine if it has been used today
@@ -261,7 +253,7 @@ async def handlingMessages(msg, bot, userGroup, userQQ):
             # Plot
             outPath = drawing(model, userQQ)
             # Send a message
-            await Tools.sendPictures(
+            Tools.sendPictures(
                 userGroup=userGroup,
                 picPath=outPath,
                 bot=bot,
@@ -412,5 +404,3 @@ def vertical(str):
     for s in str:
         list.append(s)
     return "\n".join(list)
-
-mark_recv(fortune)
