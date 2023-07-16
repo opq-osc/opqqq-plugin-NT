@@ -43,22 +43,22 @@ hitokotoArchiveOpen = True
 async def sign_in():
     if g:=ctx.g:
         userGroup = g.from_group
-        print(1)
+        #print(1)
 
         if Tools.commandMatch(userGroup, blockGroupNumber):
-            print(2)
+            #print(2)
             return
 
         if not Tools.textOnly(g):
-            print(3)
+            #print(3)
             return
 
         userQQ = g.from_user
         msg = g.text
-        print(4)
+        #print(4)
         nickname = g.from_user_name
         await mainProgram(msg, userQQ, userGroup, nickname)
-        print(5)
+        #print(5)
 
 mark_recv(sign_in)
 
@@ -631,10 +631,10 @@ class TimeUtils:
 async def mainProgram(msg, userQQ, userGroup, nickname):
     # Matching method one
     exactMatch = Tools.commandMatch(msg, commandList)
-    print('进入发送程序1')
+    #print('进入发送程序1')
     if exactMatch:
         result = processing(userQQ, nickname)
-        print('进入发送程序2')
+        #print('进入发送程序2')
         if result == Status.FAILURE:
             return
         await Tools.sendPictures(
